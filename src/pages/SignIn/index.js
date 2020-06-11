@@ -11,7 +11,7 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { Mail, Visibility } from "@material-ui/icons/";
-import LOGO from "../../assets/images/orange-logo.png";
+import { ReactComponent as Logo } from "../../assets/images/orange-logo.svg";
 
 function SignIn() {
   return (
@@ -30,12 +30,11 @@ function SignIn() {
           justifyContent="center"
           padding="2rem"
         >
-          <img
+          <Logo
             style={{
-              width: "40%",
+              width: "50%",
+              height: "60%",
             }}
-            alt="Logo"
-            src={LOGO}
           />
         </Box>
         <Grid container spacing="2">

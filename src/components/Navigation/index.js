@@ -17,9 +17,10 @@ import {
   Dashboard,
   Business,
   Storage,
+  People,
 } from "@material-ui/icons";
 import history from "../../services/history";
-import LOGO from "../../assets/images/orange-logo.png";
+import { ReactComponent as Logo } from "../../assets/images/orange-logo.svg";
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -34,7 +35,7 @@ export default function Navigation() {
 
   const [open, setOpen] = useState(false);
 
-  const listItems = [
+  const routeList = [
     {
       text: "Dashboard",
       icon: <Dashboard color="primary" />,
@@ -54,6 +55,11 @@ export default function Navigation() {
       text: "Materiais",
       icon: <Storage color="primary" />,
       path: "/materials",
+    },
+    {
+      text: "Usuários",
+      icon: <People color="primary" />,
+      path: "/users",
     },
   ];
 
@@ -83,16 +89,15 @@ export default function Navigation() {
         justifyContent="center"
         padding="2rem"
       >
-        <img
+        <Logo
           style={{
             width: "60%",
+            height: "60%",
           }}
-          alt="Logo"
-          src={LOGO}
         />
       </Box>
       <List>
-        {listItems.map((item, index) => (
+        {routeList.map((item, index) => (
           <ListItem
             selected={history.location.pathname === item.path}
             onClick={() => history.push(item.path)}
