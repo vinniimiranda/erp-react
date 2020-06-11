@@ -11,6 +11,8 @@ import {
   IconButton,
 } from "@material-ui/core";
 import { Mail, Visibility } from "@material-ui/icons/";
+import LOGO from "../../assets/images/orange-logo.png";
+
 function SignIn() {
   return (
     <Box
@@ -22,13 +24,18 @@ function SignIn() {
       height="100vh"
     >
       <Container maxWidth="xs">
-        <Box display="flex" justifyContent="center" alignItems="center">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          padding="2rem"
+        >
           <img
             style={{
-              width: "70%",
+              width: "40%",
             }}
             alt="Logo"
-            src="https://placeit-assets1.s3-accelerate.amazonaws.com/custom-pages/technology-logo-maker-lp/online-logo-design-template-for-an-eco-tech-company-2176l-206-el-1024x1024.png"
+            src={LOGO}
           />
         </Box>
         <Grid container spacing="2">

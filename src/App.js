@@ -18,7 +18,7 @@ function App() {
         palette: {
           type: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: "#17AEBD",
+            main: "#FF7A00",
           },
           secondary: {
             main: "#00DDAA",
@@ -27,6 +27,7 @@ function App() {
             default: "#000014",
             paper: "#000014",
           },
+          // text: { primary: "#999", secondary: "#00DDAA" },
         },
       }),
     [prefersDarkMode]

@@ -19,7 +19,7 @@ import {
   Storage,
 } from "@material-ui/icons";
 import history from "../../services/history";
-
+import LOGO from "../../assets/images/orange-logo.png";
 const useStyles = makeStyles({
   list: {
     width: 250,
@@ -35,10 +35,26 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   const listItems = [
-    { text: "Dashboard", icon: <Dashboard />, path: "/dashboard" },
-    { text: "Clientes", icon: <AccountCircle />, path: "/customers" },
-    { text: "Fornecedores", icon: <Business />, path: "/suppliers" },
-    { text: "Materiais", icon: <Storage />, path: "/materials" },
+    {
+      text: "Dashboard",
+      icon: <Dashboard color="primary" />,
+      path: "/dashboard",
+    },
+    {
+      text: "Clientes",
+      icon: <AccountCircle color="primary" />,
+      path: "/customers",
+    },
+    {
+      text: "Fornecedores",
+      icon: <Business color="primary" />,
+      path: "/suppliers",
+    },
+    {
+      text: "Materiais",
+      icon: <Storage color="primary" />,
+      path: "/materials",
+    },
   ];
 
   const toggleDrawer = () => (event) => {
@@ -61,13 +77,20 @@ export default function Navigation() {
       // onClick={toggleDrawer(anchor, false)}
       // onKeyDown={toggleDrawer(anchor, false)}
     >
-      <img
-        style={{
-          width: "100%",
-        }}
-        alt="Logo"
-        src="https://placeit-assets1.s3-accelerate.amazonaws.com/custom-pages/technology-logo-maker-lp/online-logo-design-template-for-an-eco-tech-company-2176l-206-el-1024x1024.png"
-      />
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        padding="2rem"
+      >
+        <img
+          style={{
+            width: "60%",
+          }}
+          alt="Logo"
+          src={LOGO}
+        />
+      </Box>
       <List>
         {listItems.map((item, index) => (
           <ListItem
@@ -92,7 +115,7 @@ export default function Navigation() {
           marginBottom: "1rem",
         }}
       >
-        <Menu />
+        <Menu color="primary" />
       </IconButton>
       <Drawer anchor={"left"} open={open} onClose={toggleDrawer()}>
         {list()}
