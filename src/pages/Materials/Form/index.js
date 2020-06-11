@@ -2,9 +2,20 @@ import React from "react";
 
 import { Drawer, Box, TextField, Grid, Button } from "@material-ui/core";
 import { useResponsive } from "../../../hooks/useResponsive";
+import { useSnackbar } from "notistack";
 
 function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
   const responsive = useResponsive(425);
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleSubmit = () => {
+    toggleDrawer();
+    enqueueSnackbar("Material cadastrado com sucesso", {
+      variant: "success",
+      anchorOrigin: { horizontal: "right", vertical: "top" },
+    });
+  };
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={() => toggleDrawer()}>
@@ -60,7 +71,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
                 style={{
                   color: "#fff",
                 }}
-                onClick={toggleDrawer}
+                onClick={handleSubmit}
               >
                 Salvar
               </Button>

@@ -3,6 +3,7 @@ import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { SnackbarProvider } from "notistack";
 
 import "./config/ReactotronConfig";
 import Routes from "./routes/index";
@@ -35,9 +36,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router history={history}>
-        <Routes />
-      </Router>
+      <SnackbarProvider maxSnack={3}>
+        <Router history={history}>
+          <Routes />
+        </Router>
+      </SnackbarProvider>
     </ThemeProvider>
   );
 }
