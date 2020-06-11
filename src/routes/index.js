@@ -5,6 +5,7 @@ import { Switch } from "react-router";
 import SignIn from "../pages/SignIn";
 import Materials from "../pages/Materials";
 import Suppliers from "../pages/Suppliers";
+import Customers from "../pages/Customers";
 
 export default function Routes() {
   return (
@@ -12,6 +13,7 @@ export default function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/materials" component={Materials} isPrivate />
       <Route path="/suppliers" component={Suppliers} isPrivate />
+      <Route path="/customers" component={Customers} isPrivate />
     </Switch>
   );
 }

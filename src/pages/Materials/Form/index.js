@@ -16,7 +16,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
           height="100%"
         >
           <Box display="flex">
-            <h2>{material?.id ? "EDITAR MATERIAL" : "CRIAR NOVO MATERIAL"}</h2>
+            <h2>{material?.id ? "EDITAR MATERIAL" : "CADASTRAR MATERIAL"}</h2>
           </Box>
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
