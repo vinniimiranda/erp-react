@@ -28,7 +28,7 @@ function App() {
             default: "#000014",
             paper: "#000014",
           },
-          // text: { primary: "#999", secondary: "#00DDAA" },
+          text: { primary: "#fff", secondary: "#fff" },
         },
       }),
     [prefersDarkMode]
