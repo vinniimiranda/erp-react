@@ -8,7 +8,6 @@ import {
   ListItemIcon,
   ListItemText,
   IconButton,
-  Link,
   Box,
 } from "@material-ui/core";
 
@@ -71,24 +70,15 @@ export default function Navigation() {
       />
       <List>
         {listItems.map((item, index) => (
-          <Link
-            color={
-              history.location.pathname === item.path ? "primary" : "inherit"
-            }
-            href={item.path}
-            underline="none"
-            key={item.text}
+          <ListItem
+            selected={history.location.pathname === item.path}
+            onClick={() => history.push(item.path)}
+            button
+            style={{ padding: ".75rem" }}
           >
-            <ListItem
-              selected={history.location.pathname === item.path}
-              onClick={() => history.push(item.path)}
-              button
-              style={{ padding: ".75rem" }}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          </Link>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.text} />
+          </ListItem>
         ))}
       </List>
     </div>
