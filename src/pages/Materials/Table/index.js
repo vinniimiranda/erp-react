@@ -22,11 +22,21 @@ export default function ({ data, handleEditMaterial }) {
 
   const classes = useStyles();
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+    <TableContainer
+      component={Paper}
+      style={{
+        maxHeight: "72vh",
+      }}
+    >
+      <Table
+        className={classes.table}
+        aria-label="simple table"
+        stickyHeader
+        size="small"
+      >
         <TableHead>
           <TableRow>
-            <TableCell>Material</TableCell>
+            <TableCell>Nome</TableCell>
             <TableCell align="center">Código</TableCell>
             <TableCell align="center">Descrição</TableCell>
             <TableCell align="center">Quantidade</TableCell>

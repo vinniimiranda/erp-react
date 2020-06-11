@@ -3,11 +3,12 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Drawer,
-  Button,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  IconButton,
+  Link,
 } from "@material-ui/core";
 
 import {
@@ -17,6 +18,7 @@ import {
   Business,
   Storage,
 } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -28,14 +30,16 @@ const useStyles = makeStyles({
 });
 
 export default function Navigation() {
+  const history = useHistory();
   const classes = useStyles();
+
   const [open, setOpen] = useState(false);
 
   const listItems = [
-    { text: "Dashboard", icon: <Dashboard /> },
-    { text: "Clientes", icon: <AccountCircle /> },
-    { text: "Fornecedores", icon: <Business /> },
-    { text: "Estoque", icon: <Storage /> },
+    { text: "Dashboard", icon: <Dashboard />, path: "/dashboard" },
+    { text: "Clientes", icon: <AccountCircle />, path: "/customers" },
+    { text: "Fornecedores", icon: <Business />, path: "/suppliers" },
+    { text: "Materiais", icon: <Storage />, path: "/materials" },
   ];
 
   const toggleDrawer = () => (event) => {
@@ -67,10 +71,24 @@ export default function Navigation() {
       />
       <List>
         {listItems.map((item, index) => (
-          <ListItem button key={item.text} style={{ padding: ".75rem" }}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
+          <Link
+            color={
+              history.location.pathname === item.path ? "primary" : "inherit"
+            }
+            href={item.path}
+            underline="none"
+            key={item.text}
+          >
+            <ListItem
+              selected={history.location.pathname === item.path}
+              onClick={() => history.push(item.path)}
+              button
+              style={{ padding: ".75rem" }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
@@ -78,14 +96,14 @@ export default function Navigation() {
 
   return (
     <div>
-      <Button
+      <IconButton
         onClick={toggleDrawer("left", true)}
         style={{
           marginBottom: "1rem",
         }}
       >
         <Menu />
-      </Button>
+      </IconButton>
       <Drawer anchor={"left"} open={open} onClose={toggleDrawer()}>
         {list()}
       </Drawer>

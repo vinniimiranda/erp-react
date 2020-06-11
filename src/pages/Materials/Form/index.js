@@ -1,13 +1,6 @@
 import React from "react";
 
-import {
-  Drawer,
-  Box,
-  TextField,
-  Typography,
-  Grid,
-  Button,
-} from "@material-ui/core";
+import { Drawer, Box, TextField, Grid, Button } from "@material-ui/core";
 import { useResponsive } from "../../../hooks/useResponsive";
 
 function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
@@ -23,9 +16,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
           height="100%"
         >
           <Box display="flex">
-            <Typography>
-              {material?.id ? "EDITAR MATERIAL" : "CRIAR NOVO MATERIAL"}
-            </Typography>
+            <h2>{material?.id ? "EDITAR MATERIAL" : "CRIAR NOVO MATERIAL"}</h2>
           </Box>
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
