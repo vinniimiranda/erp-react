@@ -22,7 +22,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
           </Box>
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
-              <Grid item md="3" xs="12">
+              <Grid item md={3} xs={12}>
                 <TextField
                   value={supplier.document}
                   variant="filled"
@@ -32,7 +32,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="5" xs="12">
+              <Grid item md={5} xs={12}>
                 <TextField
                   value={supplier.slug}
                   variant="filled"
@@ -42,7 +42,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="4" xs="12">
+              <Grid item md={4} xs={12}>
                 <TextField
                   value={supplier.social_name}
                   variant="filled"
@@ -52,7 +52,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="3" xs="12">
+              <Grid item md={3} xs={12}>
                 <TextField
                   value={supplier.address?.cep}
                   variant="filled"
@@ -62,7 +62,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="6" xs="12">
+              <Grid item md={6} xs={12}>
                 <TextField
                   value={supplier.address?.street}
                   variant="filled"
@@ -72,7 +72,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="3" xs="12">
+              <Grid item md={3} xs={12}>
                 <TextField
                   value={supplier.address?.number}
                   variant="filled"
@@ -82,7 +82,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="6" xs="12">
+              <Grid item md={6} xs={12}>
                 <TextField
                   value={supplier.address?.neighborhood}
                   variant="filled"
@@ -92,7 +92,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="4" xs="12">
+              <Grid item md={4} xs={12}>
                 <TextField
                   value={supplier.address?.city}
                   variant="filled"
@@ -102,7 +102,7 @@ function SupplierForm({ open = false, toggleDrawer = () => {}, supplier }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="2" xs="12">
+              <Grid item md={2} xs={12}>
                 <TextField
                   value={supplier.address?.state}
                   variant="filled"

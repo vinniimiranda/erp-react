@@ -6,52 +6,56 @@ import SupplierForm from "./Form";
 import { Add } from "@material-ui/icons";
 
 export default function Suppliers() {
-  const data = [
-    {
-      id: 10,
-      document: "1505005502c",
-      slug: "EMPRESA2",
-      social_name: "EMPRESA c1",
-      address_id: 14,
-      status: true,
-      created_at: "2020-06-07 20:55:01",
-      updated_at: "2020-06-07 20:55:01",
-      address: {
-        id: 14,
-        cep: "07408050",
-        state: "SP",
-        city: "Guarulhos",
-        street: "Rua 1234kk",
-        number: "5058",
-        neighborhood: "Centro",
-        complement: "Bolinha",
+  const data = [];
+  for (let i = 1; i <= 25; i++) {
+    if (i % 2) {
+      data.push({
+        id: i,
+        document: "1505005502c",
+        slug: "EMPRESA2",
+        social_name: "EMPRESA c1",
+        address_id: 14,
+        status: true,
         created_at: "2020-06-07 20:55:01",
         updated_at: "2020-06-07 20:55:01",
-      },
-    },
-    {
-      id: 12,
-      document: "15050055029",
-      slug: "EMPRESc",
-      social_name: "EMPRESAc",
-      address_id: 15,
-      status: true,
-      created_at: "2020-06-08 06:02:12",
-      updated_at: "2020-06-08 06:02:12",
-      address: {
-        id: 15,
-        cep: "07408050",
-        state: "SP",
-        city: "Guarulhos",
-        street: "Rua 1234kk",
-        number: "5058",
-        neighborhood: "Centro",
-        complement: "Bolinha",
+        address: {
+          id: 14,
+          cep: "07408050",
+          state: "SP",
+          city: "Guarulhos",
+          street: "Rua 1234kk",
+          number: "5058",
+          neighborhood: "Centro",
+          complement: "Bolinha",
+          created_at: "2020-06-07 20:55:01",
+          updated_at: "2020-06-07 20:55:01",
+        },
+      });
+    } else {
+      data.push({
+        id: i,
+        document: "15050055029",
+        slug: "EMPRESc",
+        social_name: "EMPRESAc",
+        address_id: 15,
+        status: true,
         created_at: "2020-06-08 06:02:12",
         updated_at: "2020-06-08 06:02:12",
-      },
-    },
-  ];
+        address: {
+          id: 15,
+          cep: "07408050",
+          state: "SP",
+          city: "Guarulhos",
+          street: "Rua 1234kk",
+          number: "5058",
+          neighborhood: "Centro",
+          complement: "Bolinha",
+          created_at: "2020-06-08 06:02:12",
+          updated_at: "2020-06-08 06:02:12",
+        },
+      });
+    }
+  }
   const [openForm, setOpenForm] = useState(false);
   const [supplier, setSupplier] = useState({});
 

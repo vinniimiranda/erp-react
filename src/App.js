@@ -1,17 +1,18 @@
-import React from "react";
-
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import React, { useState } from "react";
+import { Router } from "react-router";
 import { SnackbarProvider } from "notistack";
 
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
 import "./config/ReactotronConfig";
-import Routes from "./routes/index";
-import { Router } from "react-router";
 import history from "./services/history";
+import Routes from "./routes/index";
+import { Switch, Box } from "@material-ui/core";
 
 function App() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [prefersDarkMode, setPrefersDarkMode] = useState(true);
+  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const theme = React.useMemo(
     () =>
@@ -19,16 +20,19 @@ function App() {
         palette: {
           type: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: "#FF7A00",
+            main: prefersDarkMode ? "#FF7A00" : "#00BFA6",
           },
           secondary: {
-            main: "#00DDAA",
+            main: prefersDarkMode ? "#00DDAA" : "#00B0FF",
           },
           background: {
-            default: "#000014",
-            paper: "#111128",
+            default: prefersDarkMode ? "#000014" : "#FAFAFA",
+            paper: prefersDarkMode ? "#111128" : "#FAFAFA",
           },
-          text: { primary: "#fff", secondary: "#fff" },
+          text: {
+            primary: prefersDarkMode ? "#FFF" : "#666",
+            secondary: prefersDarkMode ? "#FFF" : "#999",
+          },
         },
       }),
     [prefersDarkMode]
@@ -36,6 +40,14 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Box position="absolute" top="1rem" right="1rem">
+        <Switch
+          title="Dark mode"
+          checked={prefersDarkMode}
+          color="primary"
+          onChange={() => setPrefersDarkMode(!prefersDarkMode)}
+        />
+      </Box>
       <SnackbarProvider maxSnack={3}>
         <Router history={history}>
           <Routes />

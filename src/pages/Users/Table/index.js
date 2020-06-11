@@ -14,7 +14,7 @@ import {
 import { Edit } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default function ({ data, handleEditMaterial }) {
+export default function ({ data, handleEditUser }) {
   const useStyles = makeStyles({
     table: {
       minWidth: 650,
@@ -38,6 +38,7 @@ export default function ({ data, handleEditMaterial }) {
       "&:nth-of-type(odd)": {
         backgroundColor: theme.palette.action.hover,
       },
+      lineHeight: 0,
     },
   }))(TableRow);
 
@@ -46,7 +47,7 @@ export default function ({ data, handleEditMaterial }) {
     <TableContainer
       component={Paper}
       style={{
-        maxHeight: "70vh",
+        maxHeight: "72vh",
       }}
     >
       <Table
@@ -57,23 +58,22 @@ export default function ({ data, handleEditMaterial }) {
       >
         <TableHead>
           <TableRow>
-            <StyledTableCell>Nome</StyledTableCell>
-            <StyledTableCell align="center">Código</StyledTableCell>
-            <StyledTableCell align="center">Descrição</StyledTableCell>
-            <StyledTableCell align="center">Quantidade</StyledTableCell>
+            <StyledTableCell>ID</StyledTableCell>
+            <StyledTableCell align="center">Usuário</StyledTableCell>
+            <StyledTableCell align="center">E-mail</StyledTableCell>
             <StyledTableCell align="center">Editar</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.map((row) => (
             <StyledTableRow key={row.id}>
-              <TableCell>{row.name}</TableCell>
-              <TableCell align="center">{row.slug}</TableCell>
-              <TableCell align="center">{row.description}</TableCell>
-              <TableCell align="center">{row.stock.quantity}</TableCell>
+              <TableCell>{row.id}</TableCell>
+              <TableCell align="center">{row.username}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+
               <TableCell align="center">
                 <IconButton
-                  onClick={() => handleEditMaterial({ row })}
+                  onClick={() => handleEditUser({ row })}
                   variant="outlined"
                   color="secondary"
                 >

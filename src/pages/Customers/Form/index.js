@@ -20,7 +20,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
           </Box>
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
-              <Grid item md="3" xs="12">
+              <Grid item md={3} xs={12}>
                 <TextField
                   value={customer.document}
                   variant="filled"
@@ -30,7 +30,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="5" xs="12">
+              <Grid item md={5} xs={12}>
                 <TextField
                   value={customer.slug}
                   variant="filled"
@@ -40,7 +40,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="4" xs="12">
+              <Grid item md={4} xs={12}>
                 <TextField
                   value={customer.social_name}
                   variant="filled"
@@ -50,7 +50,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="3" xs="12">
+              <Grid item md={3} xs={12}>
                 <TextField
                   value={customer.address?.cep}
                   variant="filled"
@@ -60,7 +60,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="6" xs="12">
+              <Grid item md={6} xs={12}>
                 <TextField
                   value={customer.address?.street}
                   variant="filled"
@@ -70,7 +70,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="3" xs="12">
+              <Grid item md={3} xs={12}>
                 <TextField
                   value={customer.address?.number}
                   variant="filled"
@@ -80,7 +80,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="6" xs="12">
+              <Grid item md={6} xs={12}>
                 <TextField
                   value={customer.address?.neighborhood}
                   variant="filled"
@@ -90,7 +90,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="4" xs="12">
+              <Grid item md={4} xs={12}>
                 <TextField
                   value={customer.address?.city}
                   variant="filled"
@@ -100,7 +100,7 @@ function CustomerForm({ open = false, toggleDrawer = () => {}, customer }) {
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="2" xs="12">
+              <Grid item md={2} xs={12}>
                 <TextField
                   value={customer.address?.state}
                   variant="filled"

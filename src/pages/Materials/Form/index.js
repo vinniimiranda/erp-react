@@ -39,7 +39,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
           </Box>
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
-              <Grid item md="6" xs="12">
+              <Grid item md={6} xs={12}>
                 <FormControl fullWidth variant="filled">
                   <InputLabel htmlFor="material-name">Material</InputLabel>
                   <FilledInput
@@ -49,7 +49,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item md="6" xs="12">
+              <Grid item md={6} xs={12}>
                 <FormControl fullWidth variant="filled">
                   <InputLabel htmlFor="material-slug">Código</InputLabel>
                   <FilledInput
@@ -59,7 +59,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
                   />
                 </FormControl>
               </Grid>
-              <Grid item md="12" xs="12">
+              <Grid item md={12} xs={12}>
                 <FormControl fullWidth variant="filled">
                   <InputLabel htmlFor="material-description">
                     Descrição

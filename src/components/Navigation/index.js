@@ -99,6 +99,7 @@ export default function Navigation() {
       <List>
         {routeList.map((item, index) => (
           <ListItem
+            key={item.text}
             selected={history.location.pathname === item.path}
             onClick={() => history.push(item.path)}
             button

@@ -7,6 +7,7 @@ import Materials from "../pages/Materials";
 import Suppliers from "../pages/Suppliers";
 import Customers from "../pages/Customers";
 import Dashboard from "../pages/Dashboard";
+import Users from "../pages/Users";
 
 export default function Routes() {
   return (
@@ -16,6 +17,7 @@ export default function Routes() {
       <Route path="/materials" component={Materials} isPrivate />
       <Route path="/suppliers" component={Suppliers} isPrivate />
       <Route path="/customers" component={Customers} isPrivate />
+      <Route path="/users" component={Users} isPrivate />
     </Switch>
   );
 }
