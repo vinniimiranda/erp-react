@@ -1,6 +1,14 @@
 import React from "react";
 
-import { Drawer, Box, TextField, Grid, Button } from "@material-ui/core";
+import {
+  Drawer,
+  Box,
+  FormControl,
+  InputLabel,
+  FilledInput,
+  Grid,
+  Button,
+} from "@material-ui/core";
 import { useResponsive } from "../../../hooks/useResponsive";
 import { useSnackbar } from "notistack";
 
@@ -32,34 +40,36 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
               <Grid item md="6" xs="12">
-                <TextField
-                  value={material.name}
-                  variant="filled"
-                  label="Material"
-                  style={{
-                    width: "100%",
-                  }}
-                ></TextField>
+                <FormControl fullWidth variant="filled">
+                  <InputLabel htmlFor="material-name">Material</InputLabel>
+                  <FilledInput
+                    value={material.name}
+                    variant="filled"
+                    id="material-name"
+                  />
+                </FormControl>
               </Grid>
               <Grid item md="6" xs="12">
-                <TextField
-                  value={material.slug}
-                  variant="filled"
-                  label="Código"
-                  style={{
-                    width: "100%",
-                  }}
-                ></TextField>
+                <FormControl fullWidth variant="filled">
+                  <InputLabel htmlFor="material-slug">Código</InputLabel>
+                  <FilledInput
+                    value={material.slug}
+                    variant="filled"
+                    id="material-slug"
+                  />
+                </FormControl>
               </Grid>
               <Grid item md="12" xs="12">
-                <TextField
-                  value={material.description}
-                  variant="filled"
-                  label="Descrição"
-                  style={{
-                    width: "100%",
-                  }}
-                ></TextField>
+                <FormControl fullWidth variant="filled">
+                  <InputLabel htmlFor="material-description">
+                    Descrição
+                  </InputLabel>
+                  <FilledInput
+                    value={material.description}
+                    variant="filled"
+                    id="material-description"
+                  />
+                </FormControl>
               </Grid>
             </Grid>
           </Box>

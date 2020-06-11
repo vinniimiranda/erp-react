@@ -26,7 +26,7 @@ function App() {
           },
           background: {
             default: "#000014",
-            paper: "#000014",
+            paper: "#111128",
           },
           text: { primary: "#fff", secondary: "#fff" },
         },
