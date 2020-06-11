@@ -5,7 +5,9 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import "./config/ReactotronConfig";
-import Routes from "./routes";
+import Routes from "./routes/index";
+import { Router } from "react-router";
+import history from "./services/history";
 
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -32,7 +34,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Routes />
+      <Router history={history}>
+        <Routes />
+      </Router>
     </ThemeProvider>
   );
 }

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Navigation from "../../components/Navigation";
 import { Box, Button } from "@material-ui/core";
 
 import MaterialTable from "./Table";
 import MaterialForm from "./Form";
 
-export default function Main() {
+export default function Material() {
   const data = [
     {
       id: 1,
@@ -288,7 +287,6 @@ export default function Main() {
         padding: "1rem 2rem ",
       }}
     >
-      <Navigation />
       <Box
         display="flex"
         justifyContent="space-between"

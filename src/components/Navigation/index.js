@@ -9,6 +9,7 @@ import {
   ListItemText,
   IconButton,
   Link,
+  Box,
 } from "@material-ui/core";
 
 import {
@@ -18,7 +19,7 @@ import {
   Business,
   Storage,
 } from "@material-ui/icons";
-import { useHistory } from "react-router-dom";
+import history from "../../services/history";
 
 const useStyles = makeStyles({
   list: {
@@ -30,7 +31,6 @@ const useStyles = makeStyles({
 });
 
 export default function Navigation() {
-  const history = useHistory();
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -95,7 +95,7 @@ export default function Navigation() {
   );
 
   return (
-    <div>
+    <Box padding=" 1rem 2rem">
       <IconButton
         onClick={toggleDrawer("left", true)}
         style={{
@@ -107,6 +107,6 @@ export default function Navigation() {
       <Drawer anchor={"left"} open={open} onClose={toggleDrawer()}>
         {list()}
       </Drawer>
-    </div>
+    </Box>
   );
 }
