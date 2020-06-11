@@ -6,16 +6,18 @@ import {
   TextField,
   Typography,
   Grid,
-  Button
+  Button,
 } from "@material-ui/core";
+import { useResponsive } from "../../../hooks/useResponsive";
 
 function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
+  const responsive = useResponsive(425);
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={() => toggleDrawer()}>
         <Box
           display="flex"
-          width="60vw"
+          width={responsive ? "85vw" : "60vw"}
           flexDirection="column"
           padding="2rem"
           height="100%"
@@ -27,33 +29,33 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
           </Box>
           <Box display="flex" marginTop="1rem">
             <Grid container spacing={3}>
-              <Grid item md="6">
+              <Grid item md="6" xs="12">
                 <TextField
                   value={material.name}
                   variant="filled"
                   label="Material"
                   style={{
-                    width: "100%"
+                    width: "100%",
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="6">
+              <Grid item md="6" xs="12">
                 <TextField
                   value={material.slug}
                   variant="filled"
                   label="Código"
                   style={{
-                    width: "100%"
+                    width: "100%",
                   }}
                 ></TextField>
               </Grid>
-              <Grid item md="12">
+              <Grid item md="12" xs="12">
                 <TextField
                   value={material.description}
                   variant="filled"
                   label="Descrição"
                   style={{
-                    width: "100%"
+                    width: "100%",
                   }}
                 ></TextField>
               </Grid>
@@ -65,7 +67,7 @@ function MaterialForm({ open = false, toggleDrawer = () => {}, material }) {
                 variant="contained"
                 color="primary"
                 style={{
-                  color: "#fff"
+                  color: "#fff",
                 }}
                 onClick={toggleDrawer}
               >

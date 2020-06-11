@@ -1,23 +1,23 @@
 import React from "react";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper
+  Paper,
+  IconButton,
 } from "@material-ui/core";
 
 import { Edit } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default function({ data, handleEditMaterial }) {
+export default function ({ data, handleEditMaterial }) {
   const useStyles = makeStyles({
     table: {
-      minWidth: 650
-    }
+      minWidth: 650,
+    },
   });
 
   const classes = useStyles();
@@ -34,20 +34,20 @@ export default function({ data, handleEditMaterial }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(row => (
+          {data.map((row) => (
             <TableRow key={row.name}>
               <TableCell>{row.name}</TableCell>
               <TableCell align="center">{row.slug}</TableCell>
               <TableCell align="center">{row.description}</TableCell>
               <TableCell align="center">{row.stock.quantity}</TableCell>
               <TableCell align="center">
-                <Button
+                <IconButton
                   onClick={() => handleEditMaterial({ row })}
                   variant="outlined"
                   color="secondary"
                 >
                   <Edit />
-                </Button>
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}

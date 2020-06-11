@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { Menu, People } from '@material-ui/icons';
+import React, { useState } from "react";
+import clsx from "clsx";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Drawer,
+  Button,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@material-ui/core";
+
+import {
+  Menu,
+  AccountCircle,
+  Dashboard,
+  Business,
+  Storage,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles({
   list: {
     width: 250,
   },
   fullList: {
-    width: 'auto',
+    width: "auto",
   },
 });
 
@@ -25,10 +31,17 @@ export default function Navigation() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  const toggleDrawer = () => event => {
+  const listItems = [
+    { text: "Dashboard", icon: <Dashboard /> },
+    { text: "Clientes", icon: <AccountCircle /> },
+    { text: "Fornecedores", icon: <Business /> },
+    { text: "Estoque", icon: <Storage /> },
+  ];
+
+  const toggleDrawer = () => (event) => {
     if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
     }
@@ -36,33 +49,27 @@ export default function Navigation() {
     setOpen(!open);
   };
 
-  const list = anchor => (
+  const list = (anchor) => (
     <div
       className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+        [classes.fullList]: anchor === "top" || anchor === "bottom",
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
     >
+      <img
+        style={{
+          width: "100%",
+        }}
+        alt="Logo"
+        src="https://placeit-assets1.s3-accelerate.amazonaws.com/custom-pages/technology-logo-maker-lp/online-logo-design-template-for-an-eco-tech-company-2176l-206-el-1024x1024.png"
+      />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              <People />
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
+        {listItems.map((item, index) => (
+          <ListItem button key={item.text} style={{ padding: ".75rem" }}>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.text} />
           </ListItem>
         ))}
       </List>
@@ -72,15 +79,15 @@ export default function Navigation() {
   return (
     <div>
       <Button
-        onClick={toggleDrawer('left', true)}
+        onClick={toggleDrawer("left", true)}
         style={{
-          marginBottom: '1rem',
+          marginBottom: "1rem",
         }}
       >
         <Menu />
       </Button>
-      <Drawer anchor={'left'} open={open} onClose={toggleDrawer()}>
-        {list('left')}
+      <Drawer anchor={"left"} open={open} onClose={toggleDrawer()}>
+        {list()}
       </Drawer>
     </div>
   );
