@@ -8,6 +8,7 @@ import {
   TableRow,
   Paper,
   IconButton,
+  withStyles,
 } from "@material-ui/core";
 
 import { Edit } from "@material-ui/icons";
@@ -19,6 +20,18 @@ export default function ({ data, handleEditSupplier }) {
       minWidth: 650,
     },
   });
+
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.common.white,
+      paddingTop: ".5rem",
+      paddingBottom: ".5rem",
+    },
+    body: {
+      fontSize: "1rem",
+    },
+  }))(TableCell);
 
   const classes = useStyles();
   return (
@@ -36,13 +49,13 @@ export default function ({ data, handleEditSupplier }) {
       >
         <TableHead>
           <TableRow>
-            <TableCell>CNPJ</TableCell>
-            <TableCell align="center">Razão Social</TableCell>
-            <TableCell align="center">Nome Fantasia</TableCell>
-            <TableCell align="center">CEP</TableCell>
-            <TableCell align="center">Cidade</TableCell>
-            <TableCell align="center">Estado</TableCell>
-            <TableCell align="center">Editar</TableCell>
+            <StyledTableCell>CNPJ</StyledTableCell>
+            <StyledTableCell align="center">Razão Social</StyledTableCell>
+            <StyledTableCell align="center">Nome Fantasia</StyledTableCell>
+            <StyledTableCell align="center">CEP</StyledTableCell>
+            <StyledTableCell align="center">Cidade</StyledTableCell>
+            <StyledTableCell align="center">Estado</StyledTableCell>
+            <StyledTableCell align="center">Editar</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

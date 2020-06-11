@@ -8,6 +8,7 @@ import {
   TableRow,
   Paper,
   IconButton,
+  withStyles,
 } from "@material-ui/core";
 
 import { Edit } from "@material-ui/icons";
@@ -19,6 +20,18 @@ export default function ({ data, handleEditMaterial }) {
       minWidth: 650,
     },
   });
+
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.common.white,
+      paddingTop: ".5rem",
+      paddingBottom: ".5rem",
+    },
+    body: {
+      fontSize: "1rem",
+    },
+  }))(TableCell);
 
   const classes = useStyles();
   return (
@@ -36,11 +49,11 @@ export default function ({ data, handleEditMaterial }) {
       >
         <TableHead>
           <TableRow>
-            <TableCell>Nome</TableCell>
-            <TableCell align="center">Código</TableCell>
-            <TableCell align="center">Descrição</TableCell>
-            <TableCell align="center">Quantidade</TableCell>
-            <TableCell align="center">Editar</TableCell>
+            <StyledTableCell>Nome</StyledTableCell>
+            <StyledTableCell align="center">Código</StyledTableCell>
+            <StyledTableCell align="center">Descrição</StyledTableCell>
+            <StyledTableCell align="center">Quantidade</StyledTableCell>
+            <StyledTableCell align="center">Editar</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
