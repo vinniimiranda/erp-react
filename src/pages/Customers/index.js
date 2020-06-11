@@ -82,7 +82,6 @@ export default function Customers() {
         alignItems="center"
         marginBottom="2rem"
       >
-        <div></div>
         <h1>CLIENTES</h1>
         <Button
           color="primary"

@@ -293,7 +293,6 @@ export default function Material() {
         alignItems="center"
         marginBottom="2rem"
       >
-        <div></div>
         <h1>MATERIAIS</h1>
         <Button
           color="primary"

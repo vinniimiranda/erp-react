@@ -82,7 +82,6 @@ export default function Suppliers() {
         alignItems="center"
         marginBottom="2rem"
       >
-        <div></div>
         <h1>FORNECEDORES</h1>
         <Button
           color="primary"
