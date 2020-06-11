@@ -3,6 +3,7 @@ import { Box, Button } from "@material-ui/core";
 
 import MaterialTable from "./Table";
 import MaterialForm from "./Form";
+import { Add } from "@material-ui/icons";
 
 export default function Material() {
   const data = [
@@ -284,25 +285,28 @@ export default function Material() {
       display="flex"
       flexDirection="column"
       style={{
-        padding: "1rem 2rem ",
+        padding: ".3rem 2rem ",
       }}
     >
+      <Box display="flex" justifyContent="center">
+        <h2>MATERIAIS</h2>
+      </Box>
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         alignItems="center"
-        marginBottom="2rem"
+        margin="1rem 0"
       >
-        <h1>MATERIAIS</h1>
         <Button
           color="primary"
           variant="contained"
           style={{
             color: "#fff",
           }}
+          startIcon={<Add />}
           onClick={handleAddMaterial}
         >
-          Novo material
+          material
         </Button>
       </Box>
       <MaterialTable data={data} handleEditMaterial={handleEditMaterial} />

@@ -3,6 +3,7 @@ import { Box, Button } from "@material-ui/core";
 
 import CustomerTable from "./Table";
 import CustomerForm from "./Form";
+import { Add } from "@material-ui/icons";
 
 export default function Customers() {
   const data = [
@@ -73,25 +74,28 @@ export default function Customers() {
       display="flex"
       flexDirection="column"
       style={{
-        padding: "1rem 2rem ",
+        padding: ".3rem 2rem ",
       }}
     >
+      <Box display="flex" justifyContent="center">
+        <h2>CLIENTES</h2>
+      </Box>
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         alignItems="center"
-        marginBottom="2rem"
+        margin="1rem 0"
       >
-        <h1>CLIENTES</h1>
         <Button
           color="primary"
           variant="contained"
           style={{
             color: "#fff",
           }}
+          startIcon={<Add />}
           onClick={handleAddCustomer}
         >
-          Novo CLIENTE
+          CLIENTE
         </Button>
       </Box>
       <CustomerTable data={data} handleEditCustomer={handleEditCustomer} />

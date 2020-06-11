@@ -7,10 +7,12 @@ export default function Dashboard() {
       display="flex"
       flexDirection="column"
       style={{
-        padding: "1rem 2rem ",
+        padding: ".3rem 2rem ",
       }}
     >
-      <h1>DASHBOARD</h1>
+      <Box display="flex" justifyContent="center">
+        <h2>DASHBOARD</h2>
+      </Box>
     </Box>
   );
 }

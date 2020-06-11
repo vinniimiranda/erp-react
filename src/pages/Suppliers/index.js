@@ -3,6 +3,7 @@ import { Box, Button } from "@material-ui/core";
 
 import SupplierTable from "./Table";
 import SupplierForm from "./Form";
+import { Add } from "@material-ui/icons";
 
 export default function Suppliers() {
   const data = [
@@ -73,25 +74,29 @@ export default function Suppliers() {
       display="flex"
       flexDirection="column"
       style={{
-        padding: "1rem 2rem ",
+        padding: ".3rem 2rem ",
       }}
     >
+      <Box display="flex" justifyContent="center">
+        <h2>FORNECEDORES</h2>
+      </Box>
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         alignItems="center"
-        marginBottom="2rem"
+        flexWrap="wrap"
+        margin="1rem 0"
       >
-        <h1>FORNECEDORES</h1>
         <Button
           color="primary"
           variant="contained"
           style={{
             color: "#fff",
           }}
+          startIcon={<Add />}
           onClick={handleAddSupplier}
         >
-          Novo fornecedor
+          fornecedor
         </Button>
       </Box>
       <SupplierTable data={data} handleEditSupplier={handleEditSupplier} />

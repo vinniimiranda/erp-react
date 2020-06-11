@@ -108,13 +108,8 @@ export default function Navigation() {
   );
 
   return (
-    <Box padding=" 1rem 2rem">
-      <IconButton
-        onClick={toggleDrawer("left", true)}
-        style={{
-          marginBottom: "1rem",
-        }}
-      >
+    <Box padding="1rem 0  0 2rem ">
+      <IconButton onClick={toggleDrawer("left", true)}>
         <Menu color="primary" />
       </IconButton>
       <Drawer anchor={"left"} open={open} onClose={toggleDrawer()}>

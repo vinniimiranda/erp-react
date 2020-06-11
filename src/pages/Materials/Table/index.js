@@ -33,12 +33,20 @@ export default function ({ data, handleEditMaterial }) {
     },
   }))(TableCell);
 
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      "&:nth-of-type(odd)": {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
   const classes = useStyles();
   return (
     <TableContainer
       component={Paper}
       style={{
-        maxHeight: "72vh",
+        maxHeight: "70vh",
       }}
     >
       <Table
@@ -58,7 +66,7 @@ export default function ({ data, handleEditMaterial }) {
         </TableHead>
         <TableBody>
           {data.map((row) => (
-            <TableRow key={row.name}>
+            <StyledTableRow key={row.name}>
               <TableCell>{row.name}</TableCell>
               <TableCell align="center">{row.slug}</TableCell>
               <TableCell align="center">{row.description}</TableCell>
@@ -72,7 +80,7 @@ export default function ({ data, handleEditMaterial }) {
                   <Edit />
                 </IconButton>
               </TableCell>
-            </TableRow>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>

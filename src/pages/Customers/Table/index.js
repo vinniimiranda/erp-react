@@ -33,6 +33,14 @@ export default function ({ data, handleEditCustomer }) {
     },
   }))(TableCell);
 
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      "&:nth-of-type(odd)": {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
   const classes = useStyles();
   return (
     <TableContainer
@@ -60,7 +68,7 @@ export default function ({ data, handleEditCustomer }) {
         </TableHead>
         <TableBody>
           {data.map((row) => (
-            <TableRow key={row.id}>
+            <StyledTableRow key={row.id}>
               <TableCell>{row.document}</TableCell>
               <TableCell align="center">{row.slug}</TableCell>
               <TableCell align="center">{row.social_name}</TableCell>
@@ -76,7 +84,7 @@ export default function ({ data, handleEditCustomer }) {
                   <Edit />
                 </IconButton>
               </TableCell>
-            </TableRow>
+            </StyledTableRow>
           ))}
         </TableBody>
       </Table>
