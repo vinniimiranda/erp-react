@@ -16,12 +16,13 @@ const Pie = () => (
       ...d,
     }))}
     colors={colors}
-    innerRadius={0.4}
+    innerRadius={0.5}
     enableRadialLabels={true}
     borderWidth={0}
+    cornerRadius={2}
     borderColor="#000"
     slicesLabelsSkipAngle={10}
-    animate={false}
+    animate={true}
     isInteractive={false}
   />
 );

@@ -27,7 +27,7 @@ const Bar = () => (
     enableLabel={true}
     labelSkipHeight={24}
     isInteractive={false}
-    animate={false}
+    animate={true}
   />
 );
 
