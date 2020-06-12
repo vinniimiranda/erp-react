@@ -20,7 +20,7 @@ export default function Dashboard() {
         <Grid item xs={12} sm={12} md={6} lg={6} xl={3}>
           <Paper
             style={{
-              height: "30vh",
+              height: "40vh",
               padding: "1rem",
             }}
           >
@@ -30,7 +30,7 @@ export default function Dashboard() {
         <Grid item xs={12} sm={12} md={6} lg={6} xl={3}>
           <Paper
             style={{
-              height: "30vh",
+              height: "40vh",
               padding: "rem",
             }}
           >
@@ -40,7 +40,7 @@ export default function Dashboard() {
         <Grid item xs={12} sm={12} md={6} lg={6} xl={3}>
           <Paper
             style={{
-              height: "30vh",
+              height: "40vh",
               padding: "1rem",
             }}
           >
@@ -50,7 +50,7 @@ export default function Dashboard() {
         <Grid item xs={12} sm={12} md={6} lg={6} xl={3}>
           <Paper
             style={{
-              height: "30vh",
+              height: "40vh",
               padding: "1rem",
             }}
           >

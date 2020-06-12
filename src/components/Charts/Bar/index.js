@@ -6,9 +6,9 @@ import { colors } from "../constants";
 const Bar = () => (
   <ResponsiveBar
     margin={{
-      top: 1.5,
+      top: 30,
       right: 10,
-      bottom: 1.5,
+      bottom: 30,
       left: 1.5,
     }}
     padding={0.2}
