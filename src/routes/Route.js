@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 import Navigation from "../components/Navigation";
 
-// import { store } from '../store'
+import { Box, Switch } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { switchToLight, switchToDark } from "../store/modules/theme/actions";
 const DefaultLayout = ({ children }) => (
   <>
     <Navigation />
@@ -17,7 +19,9 @@ export default function RouteWrapper({
   isPrivate = false,
   ...rest
 }) {
-  const signed = true;
+  const dispatch = useDispatch();
+  const { signed } = useSelector((state) => state.auth);
+  const { mode } = useSelector((state) => state.theme);
 
   if (!signed && isPrivate) {
     return <Redirect to="/" />;
@@ -26,15 +30,32 @@ export default function RouteWrapper({
     return <Redirect to="/dashboard" />;
   }
 
+  function handleSwitchTheme() {
+    if (mode === "dark") {
+      dispatch(switchToLight());
+    } else {
+      dispatch(switchToDark());
+    }
+  }
+
   const Layout = signed ? DefaultLayout : AuthLayout;
 
   return (
     <Route
       {...rest}
       component={(props) => (
-        <Layout>
-          <Component {...props} />
-        </Layout>
+        <>
+          <Box position="absolute" top="1rem" right="1rem">
+            <Switch
+              color="primary"
+              checked={mode === "dark"}
+              onChange={handleSwitchTheme}
+            />
+          </Box>
+          <Layout>
+            <Component {...props} />
+          </Layout>
+        </>
       )}
     />
   );

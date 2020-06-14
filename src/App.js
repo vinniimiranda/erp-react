@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import "./config/ReactotronConfig";
+
+import { Provider, useSelector } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { Router } from "react-router";
 import { SnackbarProvider } from "notistack";
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import "./config/ReactotronConfig";
 import history from "./services/history";
 import Routes from "./routes/index";
-import { Switch, Box } from "@material-ui/core";
+import { store, persistor } from "./store";
 
-function App() {
-  const [prefersDarkMode, setPrefersDarkMode] = useState(true);
-  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+const ThemeContext = () => {
+  const { mode } = useSelector((state) => state.theme);
+  const prefersDarkMode = mode === "dark";
 
   const theme = React.useMemo(
     () =>
@@ -40,20 +43,23 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box position="absolute" top="1rem" right="1rem">
-        <Switch
-          title="Dark mode"
-          checked={prefersDarkMode}
-          color="primary"
-          onChange={() => setPrefersDarkMode(!prefersDarkMode)}
-        />
-      </Box>
+
       <SnackbarProvider maxSnack={3}>
         <Router history={history}>
           <Routes />
         </Router>
       </SnackbarProvider>
     </ThemeProvider>
+  );
+};
+
+function App() {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <ThemeContext />
+      </PersistGate>
+    </Provider>
   );
 }
 

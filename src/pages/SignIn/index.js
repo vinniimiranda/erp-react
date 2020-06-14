@@ -37,8 +37,8 @@ function SignIn() {
             }}
           />
         </Box>
-        <Grid container spacing="2">
-          <Grid item xs="12">
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
             <FormControl fullWidth variant="filled">
               <InputLabel htmlFor="filled-email">E-mail</InputLabel>
               <FilledInput
@@ -53,7 +53,7 @@ function SignIn() {
               />
             </FormControl>
           </Grid>
-          <Grid item xs="12">
+          <Grid item xs={12}>
             <FormControl fullWidth variant="filled">
               <InputLabel htmlFor="filled-adornment-password">
                 Password
@@ -75,7 +75,7 @@ function SignIn() {
               />
             </FormControl>
           </Grid>
-          <Grid item xs="12">
+          <Grid item xs={12}>
             <Button
               variant="contained"
               color="primary"
