@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Drawer, Box, TextField, Grid, Button } from "@material-ui/core";
+import { DatePicker } from "@material-ui/pickers";
 
 import { useResponsive } from "../../../hooks/useResponsive";
 
@@ -51,6 +52,19 @@ function UserForm({ open = false, toggleDrawer = () => {}, user }) {
                     width: "100%",
                   }}
                 ></TextField>
+              </Grid>
+              <Grid item md={6} xs={12}>
+                <DatePicker
+                  onChange={() => {}}
+                  value={user.birth_date}
+                  format="dd/MM/yyyy"
+                  inputVariant="filled"
+                  label="Data de Nascimento"
+                  variant="inline"
+                  style={{
+                    width: "100%",
+                  }}
+                />
               </Grid>
             </Grid>
           </Box>

@@ -6,12 +6,16 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Router } from "react-router";
 import { SnackbarProvider } from "notistack";
 
+import DateFnsUtils from "@date-io/date-fns";
+import ptLocale from "date-fns/locale/pt-BR";
+
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import history from "./services/history";
 import Routes from "./routes/index";
 import { store, persistor } from "./store";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
 const ThemeContext = () => {
   const { mode } = useSelector((state) => state.theme);
@@ -45,9 +49,11 @@ const ThemeContext = () => {
       <CssBaseline />
 
       <SnackbarProvider maxSnack={3}>
-        <Router history={history}>
-          <Routes />
-        </Router>
+        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptLocale}>
+          <Router history={history}>
+            <Routes />
+          </Router>
+        </MuiPickersUtilsProvider>
       </SnackbarProvider>
     </ThemeProvider>
   );

@@ -14,7 +14,7 @@ export default function Users() {
       username: "vinniimiranda",
       full_name: "Flavio Vinicius Miranda",
       document: "415.576.838-08",
-      birth_date: "1994-02-13",
+      birth_date: "1994-02-13T00:00:00-03:00",
       email: "vinniimiranda@gmail.com",
     });
   }
