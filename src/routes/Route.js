@@ -14,21 +14,9 @@ const DefaultLayout = ({ children }) => (
 );
 const AuthLayout = ({ children }) => <>{children}</>;
 
-export default function RouteWrapper({
-  component: Component,
-  isPrivate = false,
-  ...rest
-}) {
+const ThemeSwitcher = React.memo((props) => {
   const dispatch = useDispatch();
-  const { signed } = useSelector((state) => state.auth);
   const { mode } = useSelector((state) => state.theme);
-
-  if (!signed && isPrivate) {
-    return <Redirect to="/" />;
-  }
-  if (signed && !isPrivate) {
-    return <Redirect to="/dashboard" />;
-  }
 
   function handleSwitchTheme() {
     if (mode === "dark") {
@@ -38,6 +26,31 @@ export default function RouteWrapper({
     }
   }
 
+  return (
+    <Box position="absolute" top="1rem" right="1rem">
+      <Switch
+        color="primary"
+        checked={mode === "dark"}
+        onChange={handleSwitchTheme}
+      />
+    </Box>
+  );
+});
+
+export default function RouteWrapper({
+  component: Component,
+  isPrivate = false,
+  ...rest
+}) {
+  const { signed } = useSelector((state) => state.auth);
+
+  if (!signed && isPrivate) {
+    return <Redirect to="/" />;
+  }
+  if (signed && !isPrivate) {
+    return <Redirect to="/dashboard" />;
+  }
+
   const Layout = signed ? DefaultLayout : AuthLayout;
 
   return (
@@ -45,13 +58,7 @@ export default function RouteWrapper({
       {...rest}
       component={(props) => (
         <>
-          <Box position="absolute" top="1rem" right="1rem">
-            <Switch
-              color="primary"
-              checked={mode === "dark"}
-              onChange={handleSwitchTheme}
-            />
-          </Box>
+          <ThemeSwitcher />
           <Layout>
             <Component {...props} />
           </Layout>

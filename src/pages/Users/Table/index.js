@@ -59,8 +59,10 @@ export default function ({ data, handleEditUser }) {
         <TableHead>
           <TableRow>
             <StyledTableCell>ID</StyledTableCell>
-            <StyledTableCell align="center">Usuário</StyledTableCell>
             <StyledTableCell align="center">E-mail</StyledTableCell>
+            <StyledTableCell align="center">Nome</StyledTableCell>
+            <StyledTableCell align="center">CPF</StyledTableCell>
+            <StyledTableCell align="center">Data de Nascimento</StyledTableCell>
             <StyledTableCell align="center">Editar</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -68,8 +70,10 @@ export default function ({ data, handleEditUser }) {
           {data.map((row) => (
             <StyledTableRow key={row.id}>
               <TableCell>{row.id}</TableCell>
-              <TableCell align="center">{row.username}</TableCell>
               <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.full_name}</TableCell>
+              <TableCell align="center">{row.document}</TableCell>
+              <TableCell align="center">{row.birth_date}</TableCell>
 
               <TableCell align="center">
                 <IconButton

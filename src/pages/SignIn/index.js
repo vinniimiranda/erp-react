@@ -12,8 +12,16 @@ import {
 } from "@material-ui/core";
 import { Mail, Visibility } from "@material-ui/icons/";
 import { ReactComponent as Logo } from "../../assets/images/orange-logo.svg";
+import { useDispatch } from "react-redux";
+import { signInSuccess } from "../../store/modules/auth/actions";
 
 function SignIn() {
+  const dispatch = useDispatch();
+
+  function handleLoginSubmit() {
+    dispatch(signInSuccess("token", {}));
+  }
+
   return (
     <Box
       display="flex"
@@ -77,6 +85,7 @@ function SignIn() {
           </Grid>
           <Grid item xs={12}>
             <Button
+              onClick={handleLoginSubmit}
               variant="contained"
               color="primary"
               size="large"

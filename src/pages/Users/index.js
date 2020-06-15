@@ -12,6 +12,9 @@ export default function Users() {
     data.push({
       id: i,
       username: "vinniimiranda",
+      full_name: "Flavio Vinicius Miranda",
+      document: "415.576.838-08",
+      birth_date: "1994-02-13",
       email: "vinniimiranda@gmail.com",
     });
   }

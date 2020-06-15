@@ -1,10 +1,12 @@
 import React from "react";
 
 import { Drawer, Box, TextField, Grid, Button } from "@material-ui/core";
+
 import { useResponsive } from "../../../hooks/useResponsive";
 
 function UserForm({ open = false, toggleDrawer = () => {}, user }) {
   const responsive = useResponsive(425);
+
   return (
     <div>
       <Drawer anchor="right" open={open} onClose={() => toggleDrawer()}>
@@ -22,9 +24,19 @@ function UserForm({ open = false, toggleDrawer = () => {}, user }) {
             <Grid container spacing={3}>
               <Grid item md={6} xs={12}>
                 <TextField
-                  value={user.username}
+                  value={user.full_name}
                   variant="filled"
-                  label="Usuário"
+                  label="Nome"
+                  style={{
+                    width: "100%",
+                  }}
+                ></TextField>
+              </Grid>
+              <Grid item md={6} xs={12}>
+                <TextField
+                  value={user.document}
+                  variant="filled"
+                  label="CPF"
                   style={{
                     width: "100%",
                   }}
